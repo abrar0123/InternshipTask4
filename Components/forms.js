@@ -16,6 +16,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 // import Home from "../comp/home";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 // import { useSelector, useDispatch } from "react-redux";
 // import { setName, setAge } from "../redux/actions";
 
@@ -59,8 +61,8 @@ const Forms = ({ navigation }) => {
       Alert.alert("You have Successfully Log In", value + "\n" + value1);
       navigation.navigate("Tabs");
     }
-    // setemail("");
-    // setpass("");
+    // setemail(" ");
+    // setpass(" ");
     // navigation.navigate("Home Screen", {
     //   myname: `${values.email}`,
     //   pass: `${values.pass}`,
@@ -78,11 +80,6 @@ const Forms = ({ navigation }) => {
   };
   const [value, setvalue] = useState(null);
   const [value1, setvalue1] = useState(null);
-
-  // const check = () => {
-  //   if (value1) {
-  //     }
-  // };
 
   // const saved = () => {
   //   // if (email.length > 1) {
@@ -113,8 +110,9 @@ const Forms = ({ navigation }) => {
   return (
     <View>
       {/* <Firstnav myemail={value} mypass={value1} /> */}
+
       <ImageBackground
-        source={require("./background.jpg")}
+        // source={require("./background.jpg")}
         style={{ width: 400, height: 700 }}
       >
         <Formik
@@ -137,86 +135,78 @@ const Forms = ({ navigation }) => {
             errors,
             setFieldTouched,
           }) => (
-            <View
-              style={{
-                flex: 1,
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <View style={styles.mainContainer}>
               <Text
                 style={{
-                  textAlign: "center",
+                  textAlign: "left",
                   fontSize: 35,
-
                   fontWeight: "700",
-                  color: "green",
+                  color: "#18188d",
+                  marginBottom: 20,
                 }}
               >
-                ★ ʟᴏɢ ɪɴ ★
+                Login
               </Text>
-              <TextInput
-                style={styles.input}
-                value={email}
-                // secureTextEntry={true}
-                clearButtonMode="always"
-                onBlur={() => setFieldTouched("email")}
-                // onChangeText={setemail}
-                onChangeText={handleChange("email")}
-                // onChangeText={(a)=>dispatch(setName(a))}
-                placeholder="Enter Email"
-                // onPress={console.log(email)}
-              />
+              <View style={styles.inputcontainer}>
+                <MaterialCommunityIcons
+                  name="email"
+                  size={30}
+                  style={{ marginRight: 10, marginTop: 3 }}
+                />
+                <TextInput
+                  style={styles.input}
+                  value={email}
+                  // secureTextEntry={true}
+                  clearButtonMode="always"
+                  onBlur={() => setFieldTouched("email")}
+                  // onChangeText={setemail}
+                  onChangeText={handleChange("email")}
+                  // onChangeText={(a)=>dispatch(setName(a))}
+                  placeholder="Enter Email"
+                  // onPress={console.log(email)}
+                />
+              </View>
+
               <Text style={styles.formtxt}>{errors.email}</Text>
               {/* touched.email && */}
 
-              <TextInput
-                style={styles.input}
-                // value={pass}
-                onBlur={() => setFieldTouched("pass")}
-                placeholder="Enter password"
-                // onChangeText={setpass}
-                onChangeText={handleChange("pass")}
-                onPress={console.log(pass)}
-                keyboardType="numeric"
-              />
+              <View style={styles.inputcontainer}>
+                <MaterialCommunityIcons
+                  name="lock"
+                  size={30}
+                  style={{ marginRight: 10, marginTop: 3 }}
+                />
+                <TextInput
+                  style={styles.input}
+                  // value={pass}
+                  onBlur={() => setFieldTouched("pass")}
+                  placeholder="Enter password"
+                  // onChangeText={setpass}
+                  onChangeText={handleChange("pass")}
+                  onPress={console.log(pass)}
+                  keyboardType="numeric"
+                />
+              </View>
+
               <Text style={styles.formtxt}>{errors.pass}</Text>
               <View style={styles.cont}>
                 <TouchableOpacity
                   style={{}}
                   // onPress={submit}
                 ></TouchableOpacity>
+                <Text style={{ textAlign: "right", width: 300 }}>
+                  {" "}
+                  Forgot password
+                </Text>
 
                 <TouchableOpacity
                   style={styles.btn}
                   // onPress={submit}
                   onPress={handleSubmit}
                 >
-                  <Text style={styles.txt1}> Click to Login</Text>
+                  <Text style={styles.txt1}> Login</Text>
                 </TouchableOpacity>
               </View>
-              {/* <View style={styles.cont}>
-                <Button
-                  title="Go to Log In "
-                  color="green"
-                  style={styles.btn}
-                  onPress={getdata}
-                />
-              </View> */}
-              {/* <View style={styles.cont}>
-                <Button
-                  title=" Logout "
-                  color="orange"
-                  style={styles.btn}
-                  onPress={() => {
-                    AsyncStorage.removeItem("logininfo");
-                    AsyncStorage.removeItem("logininfo1");
-                    // setvalue("");
-                    // setvalue1("");
-                  }}
-                />
-              </View> */}
             </View>
           )}
         </Formik>
@@ -225,10 +215,19 @@ const Forms = ({ navigation }) => {
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#fff",
+  mainContainer: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundColor: "white",
+    padding: 20,
+    color: "black",
+    // alignItems: "center",
+  },
+  inputcontainer: {
+    display: "flex",
+    flexDirection: "row",
     alignItems: "center",
-    marginTop: 50,
   },
   txt: {
     fontSize: 25,
@@ -236,29 +235,22 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
-    width: 350,
-    borderWidth: 3,
+    width: 250,
+    // borderWidth: 3,
     borderRadius: 5,
     padding: 10,
     fontSize: 20,
     fontWeight: "500",
     borderBottomColor: "#ccc",
-    borderBottomWidth: 1,
-    margin: 20,
+    borderBottomWidth: 2,
   },
   btn: {
-    backgroundColor: "#fabe08",
-    paddingLeft: 15,
-    paddingRight: 15,
+    backgroundColor: "#0a0a5e",
     padding: 10,
     color: "white",
-    width: 350,
+    width: 300,
+    marginTop: 30,
     borderRadius: 5,
-  },
-  cont: {
-    // marginLeft: 100,
-    // width: 250,
-    // marginTop: 20,
   },
   txt1: {
     fontSize: 22,
