@@ -15,16 +15,10 @@ const Tabs = ({ route }) => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          height: 50,
-          //  paddingBottom:10,
+          height: 60,
           position: "absolute",
-          // bottom: 0,
-          top: 0,
-          //   right: 16,
-          //   left: 16,
-          // borderRadius: 30,
-          // elevation: 0,
-
+          bottom: 0,
+          marginBottom:3,
           tabBarActiveTintColor: "white",
           tabBarInactiveTintColor: "gray",
           ...styles.shadow,
@@ -116,10 +110,7 @@ const Tabs = ({ route }) => {
                 marginRight:4,
               }}
             >
-              Abo
-              <View
-                style={{ marginLeft:10,width: 20, height: 14, backgroundColor: "black",borderRadius:3, }}
-              ></View>
+              About              
             </Text>
           ),
         }}
