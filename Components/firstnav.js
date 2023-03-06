@@ -7,43 +7,65 @@ import {
   Button,
   LogBox,
   ImageBackground,
+  Platform,
+  StatusBar,
+  Dimensions,
 } from "react-native";
+
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
+import { useEffect } from "react";
+import AppText from "./UI/AppText";
+import Card from "./UI/Card";
+import SafeAreaView from "./UI/SafeAreaView";
 const Firstnav = ({ navigation }) => {
-  const value="My Favourite Activity";
+  const ori = useDeviceOrientation();
+
+  const orientation = { port: "", land: "" };
+  orientation.port = ori === "portrait"; // return true if port
+  orientation.land = ori === "landscape";
+
+  console.log("pppp___", orientation);
+  // const { width, height } = Dimensions.get("window");
+  // console.log("width:", width, "height:", height);
+
+  const value = "My Favourite Activity";
+
+  useEffect(() => {
+    // console.log("statusbar", StatusBar.currentHeight);
+  }, []);
+
+  const nextHandler = () => {
+    navigation.navigate("Splash Screen", { myemail: `${value}` });
+  };
   return (
-    <View style={{ flex: 1, backgroundColor: "lightgrey" }}>
-      {/* <ImageBackground
-        source={require("./Untitled.jpg")}
-        style={{ width: 400, height: 700 }}
-      > */}
-      <Text
-        style={{
-          textAlign: "center",
-          fontSize: 25,
-          padding: 10,
-          fontWeight: "700",
-          marginTop: 100,
-        }}
-      >
-        Welcome to Dummy Reloading Activity !
-      </Text>
-      <View style={styles.cont}>
-        <Button
-          title="Open Activity"
-          color="black"
-          onPress={() => navigation.navigate("Splash Screen",{myemail:`${value}`})}
-        />
-      </View>
-      {/* </ImageBackground> */}
-    </View>
+    <SafeAreaView>
+      <Card>
+        <AppText customText={styles.headertext}>Welcome to Splash</AppText>
+        <AppText customText={styles.customText}>AppText </AppText>
+        <Button title="Next" color="black" onPress={nextHandler} />
+        <View
+          style={{
+            width: "90%",
+            margin: 20,
+            height: orientation.land ? "70%" : "30%",
+            backgroundColor: "lightblue",
+          }}
+        ></View>
+      </Card>
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
-  cont: {
-    alignItems: "center",
-    marginLeft: 70,
-    width: 270,
-    marginTop: 100,
+  customText: {
+    fontSize: 15,
+    paddingBottom: 20,
+  },
+  headertext: {
+    fontSize: 25,
+    paddingTop: 30,
   },
 });
 export default Firstnav;

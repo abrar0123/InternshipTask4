@@ -158,24 +158,7 @@ const First = () => {
     },
   ];
 
-  useEffect(() => {
-    const backAction = () => {
-      Alert.alert("Want Back !", "Click Yes to go back", [
-        {
-          text: "No",
-          onPress: () => null,
-          style: "cancel",
-        },
-        { text: "YES", onPress: () => BackHandler.exitApp() },
-      ]);
-      return true;
-    };
-    const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      backAction
-    );
-    return () => backHandler.remove();
-  }, []);
+ 
 
   const counter = useSelector((state) => state.counter);
   const counterp = useSelector((state1) => state1.counterPizza);
@@ -226,6 +209,7 @@ const First = () => {
       console.log("Uunselect ");
     }
   };
+
   useEffect(() => {
     LogBox.ignoreLogs(["VirtualizedLists should never be nested"]);
   }, []);
