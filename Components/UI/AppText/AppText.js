@@ -9,9 +9,9 @@ const styles = StyleSheet.create({
   txt: {
     // fontFamily: Platform.OS === "android" ? "Roboto" : "Courier",
     textAlign: "center",
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: "bold",
-    padding: 10,
+    // padding: 10,
 
     ...Platform.select({
       ios: {
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
       },
       android: {
         fontFamily: "Roboto",
-        color: "green",
+        color: "black",
       },
     }),
   },
