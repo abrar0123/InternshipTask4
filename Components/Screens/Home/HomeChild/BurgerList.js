@@ -6,8 +6,9 @@ import {
   IncreamentCount,
   IncreamentCountp,
   DecreamentCountp,
-} from "../Rtredux/reduxProvider";
+} from "../../../../Rtredux/reduxProvider";
 import { useState } from "react";
+import Colors from "../../../../assets/config/Colors";
 const BurgerList = (props) => {
   const dispatch = useDispatch();
 
@@ -44,7 +45,6 @@ const BurgerList = (props) => {
       onPress={selected}
     >
       <View
-        // style={style.container}
         style={[
           style.container,
           { borderColor: select === "selected" ? "grey" : "#ecf0f1" },
@@ -91,17 +91,14 @@ const BurgerList = (props) => {
 };
 const style = StyleSheet.create({
   container: {
-    flexDirection: "column",
-    backgroundColor: "#f3f6f4",
-    padding: 5,
-    margin: 10,
-    width: 150,
+    backgroundColor: Colors.grey,
+    paddingRight: 15,
+    paddingLeft: 15,
     borderRadius: 10,
-    alignItems: "center",
-    borderColor: "#ecf0f1",
+    marginHorizontal:10,
+    marginVertical:10,
+    borderColor: Colors.grey,
     borderWidth: 1,
-
-    // marginRight: 30,
   },
   image: {
     width: 105,
@@ -116,7 +113,6 @@ const style = StyleSheet.create({
     fontSize: 20,
     backgroundColor: "#96f69d",
   },
-  sep: {},
 });
 
 export default BurgerList;

@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import profile from "./profile";
 import Firstnav from "./firstnav";
 import Login from "./forms";
-import First from "./first";
+import First from "./Screens/Home/first";
 import Secondnav from "./secondnav";
 import Tabs from "./Tabs";
 const Stackk = createNativeStackNavigator();

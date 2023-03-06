@@ -8,7 +8,6 @@ const AppText = (props) => {
 const styles = StyleSheet.create({
   txt: {
     // fontFamily: Platform.OS === "android" ? "Roboto" : "Courier",
-    textAlign: "center",
     fontSize: 16,
     fontWeight: "bold",
     // padding: 10,

@@ -8,6 +8,7 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
+  SafeAreaView,
 } from "react-native";
 import Tabs from "./Tabs";
 import Firstnav from "./firstnav";

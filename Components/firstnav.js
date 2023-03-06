@@ -43,7 +43,7 @@ const Firstnav = ({ navigation }) => {
   };
   return (
     // <SafeAreaView>
-    <Card>
+    <Card customStyle={styles.mainContainer}>
       <AppText customText={styles.headertext}>Welcome to Splash</AppText>
       <AppText customText={styles.customText}>AppText </AppText>
       {/* <Button title="Next" color="black" onPress={nextHandler} /> */}
@@ -78,6 +78,11 @@ const styles = StyleSheet.create({
     fontSize: 15,
     paddingBottom: 20,
     color: Colors.primary,
+  },
+  mainContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   headertext: {
     fontSize: 25,

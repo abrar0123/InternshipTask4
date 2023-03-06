@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
-import First from "./first";
+import First from "./Screens/Home/first";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import About from "./About";
@@ -18,7 +18,7 @@ const Tabs = ({ route }) => {
           height: 60,
           position: "absolute",
           bottom: 0,
-          marginBottom:3,
+          marginBottom: 3,
           tabBarActiveTintColor: "white",
           tabBarInactiveTintColor: "gray",
           ...styles.shadow,
@@ -107,10 +107,10 @@ const Tabs = ({ route }) => {
                 color: focused ? "black" : color,
                 fontSize: size,
                 fontWeight: "500",
-                marginRight:4,
+                marginRight: 4,
               }}
             >
-              About              
+              About
             </Text>
           ),
         }}

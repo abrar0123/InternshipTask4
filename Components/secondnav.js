@@ -51,7 +51,7 @@ const Firstnav = ({ navigation }) => {
   return (
     <View style={{ backgroundColor: "lightgrey" }}>
       <ImageBackground
-        source={require("./Untitled.jpg")}
+        source={require("../assets/images/Untitled.jpg")}
         style={{ width: 400, height: 700 }}
       >
         <Text
@@ -65,7 +65,10 @@ const Firstnav = ({ navigation }) => {
         >
           Welcome to Splash Screen
         </Text>
-        <Image source={require("./logo.png")} style={{ marginLeft: 95 }} />
+        <Image
+          source={require("../assets/images/logo.png")}
+          style={{ marginLeft: 95 }}
+        />
         {/* <View style={styles.cont}>
           <Button
             title=" Click to Login"

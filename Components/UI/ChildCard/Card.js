@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, StatusBar } from "react-native";
+import { View, StyleSheet } from "react-native";
 
 const Card = (props) => {
   return (
@@ -11,9 +11,7 @@ const Card = (props) => {
 
 const styles = StyleSheet.create({
   mainContainerStyle: {
-    // paddingTop: StatusBar.currentHeight,
-    paddingLeft: 15,
-    paddingRight: 15,
+    
   },
 });
 
